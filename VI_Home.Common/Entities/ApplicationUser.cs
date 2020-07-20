@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace DAL.Entities
+namespace VI_Home.Common.Entities
 {
     public class ApplicationUser : IdentityUser
     {

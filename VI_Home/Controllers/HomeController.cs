@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using VI_Home.Models;
+using VI_Home.Common.Models;
 
 namespace VI_Home.Controllers
 {

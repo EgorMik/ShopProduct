@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace VI_Home.Models
+namespace VI_Home.Common.Models
 {
     public class OrderViewModel
     {

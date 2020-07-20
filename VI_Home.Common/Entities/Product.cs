@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace VI_Home.Models
+namespace VI_Home.Common.Entities
 {
-    public class ProductViewModel
+   public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Company { get; set; }
         public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

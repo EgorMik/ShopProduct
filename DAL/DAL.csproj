@@ -131,12 +131,6 @@
   <ItemGroup>
     <Compile Include="EF\ApplicationContext.cs" />
     <Compile Include="EF\ProductContext.cs" />
-    <Compile Include="Entities\ApplicationRole.cs" />
-    <Compile Include="Entities\ApplicationUser.cs" />
-    <Compile Include="Entities\Cart.cs" />
-    <Compile Include="Entities\ClientProfile.cs" />
-    <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\Product.cs" />
     <Compile Include="Identity\ApplicationRoleManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
     <Compile Include="Interfaces\IClientManager.cs" />
@@ -156,6 +150,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VI_Home.Common\VI_Home.Common.csproj">
+      <Project>{b9b1657a-e24b-4d4b-b7d3-dca2aa27fe6e}</Project>
+      <Name>VI_Home.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

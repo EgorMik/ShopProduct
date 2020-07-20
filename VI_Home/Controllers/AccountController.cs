@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using VI_Home.Models;
+using VI_Home.Common.Models;
 
 namespace VI_Home.Controllers
 {

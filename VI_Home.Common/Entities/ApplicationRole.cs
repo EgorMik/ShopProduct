@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Entities
+namespace VI_Home.Common.Entities
 {
     public class ApplicationRole : IdentityRole
     {
