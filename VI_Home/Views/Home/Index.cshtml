@@ -1,4 +1,4 @@
-﻿@model IEnumerable<VI_Home.Models.ProductViewModel>
+﻿@model IEnumerable <VI_Home.Common.Models.ProductViewModel>
 @{
     ViewBag.Title = "Index";
 }
@@ -35,8 +35,10 @@
             <td>
                 @Html.ActionLink("Order", "MakeOrder", new { id = item.Id })
             </td>
-
+            @*<td>
+                    @Html.Partial("ProductSummary")
+                </td>*@
         </tr>
     }
-    @*@Html.Partial("ProductSummary")*@
+
 </table>

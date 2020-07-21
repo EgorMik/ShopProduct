@@ -1,7 +1,7 @@
-﻿using BLL.DTO;
+﻿
 using BLL.Infrastructure;
 using BLL.Interfaces;
-using DAL.Entities;
+
 using DAL.Interfaces;
 using Microsoft.AspNet.Identity;
 using System;
@@ -10,6 +10,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using VI_Home.Common.DTO;
+using VI_Home.Common.Entities;
 
 namespace BLL.Services
 {

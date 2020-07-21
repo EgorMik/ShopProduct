@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.DTO
+namespace VI_Home.Common.DTO
 {
     public class ProductDTO
     {

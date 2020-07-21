@@ -63,9 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessModels\Discount.cs" />
-    <Compile Include="DTO\OrderDTO.cs" />
-    <Compile Include="DTO\ProductDTO.cs" />
-    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Infrastructure\OperationDetails.cs" />
     <Compile Include="Infrastructure\ServiceModule.cs" />
     <Compile Include="Infrastructure\ValidationException.cs" />
@@ -84,9 +81,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
+    <ProjectReference Include="..\DAL\VI_Home.DAL.csproj">
       <Project>{27ebedcd-d1cc-49d4-acf0-266d1fcaee5e}</Project>
-      <Name>DAL</Name>
+      <Name>VI_Home.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\VI_Home.Common\VI_Home.Common.csproj">
       <Project>{b9b1657a-e24b-4d4b-b7d3-dca2aa27fe6e}</Project>

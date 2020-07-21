@@ -1,4 +1,4 @@
-﻿@model VI_Home.Models.RegisterModel
+﻿@model VI_Home.Common.Models.RegisterModel
 
 @{
     ViewBag.Title = "Register";
@@ -7,10 +7,10 @@
 <h2>Register</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>RegisterModel</h4>
         <hr />

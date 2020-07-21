@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BLL.DTO;
 using BLL.Infrastructure;
 using BLL.Interfaces;
 using System;
@@ -7,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VI_Home.Common.DTO;
 using VI_Home.Common.Models;
 
 namespace VI_Home.Controllers
@@ -20,18 +20,18 @@ namespace VI_Home.Controllers
         }
         public ActionResult Index()
         {
-            IEnumerable<ProductDTO> phoneDtos = orderService.GetPhones();
+            IEnumerable<ProductDTO> productDtos = orderService.GetProducts();
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ProductDTO, ProductViewModel>()).CreateMapper();
-            var phones = mapper.Map<IEnumerable<ProductDTO>, List<ProductViewModel>>(phoneDtos);
-            return View(phones);
+            var products = mapper.Map<IEnumerable<ProductDTO>, List<ProductViewModel>>(productDtos);
+            return View(products);
         }
 
         public ActionResult MakeOrder(int? id)
         {
             try
             {
-                ProductDTO phone = orderService.GetPhone(id);
-                var order = new OrderViewModel { ProductId = phone.Id };
+                ProductDTO product = orderService.GetProduct(id);
+                var order = new OrderViewModel { ProductId = product.Id };
 
                 return View(order);
             }

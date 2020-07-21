@@ -1,5 +1,5 @@
 ﻿using DAL.EF;
-using DAL.Entities;
+
 using DAL.Identity;
 using DAL.Interfaces;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VI_Home.Common.Entities;
 
 namespace DAL.Repositories
 {

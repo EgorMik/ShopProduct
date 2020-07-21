@@ -1,4 +1,4 @@
-﻿using BLL.DTO;
+﻿
 using BLL.Infrastructure;
 using BLL.Interfaces;
 using Microsoft.AspNet.Identity.Owin;
@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using VI_Home.Common.Models;
+using VI_Home.Common.DTO;
+
 
 namespace VI_Home.Controllers
 {
