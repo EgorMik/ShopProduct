@@ -1,4 +1,4 @@
-﻿@model IEnumerable <VI_Home.Common.Models.ProductViewModel>
+﻿@model IEnumerable<VI_Home.Common.Models.ProductViewModel>
 @{
     ViewBag.Title = "Index";
 }
@@ -22,23 +22,29 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @using (Html.BeginForm("AddToCart", "Cart", new { id = item.Id }))
+            {
+                <div class="pull-right">
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-success" value="Добавить в корзину" />
+                    
+                </div>
+            }
+
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Company)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.ActionLink("Order", "MakeOrder", new { id = item.Id })
-            </td>
-            @*<td>
-                    @Html.Partial("ProductSummary")
-                </td>*@
-        </tr>
+    </tr>
+        
     }
 
 </table>

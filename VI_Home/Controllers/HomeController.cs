@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using VI_Home.Common.DTO;
 using VI_Home.Common.Models;
+using VI_Home.Common;
 
 namespace VI_Home.Controllers
 {

@@ -33,10 +33,15 @@ namespace BLL.Services
                 var result = await Database.UserManager.CreateAsync(user, userDto.Password);
                 if (result.Errors.Count() > 0)
                     return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
+
                 await Database.UserManager.AddToRoleAsync(user.Id, userDto.Role);
+
                 ClientProfile clientProfile = new ClientProfile { Id = user.Id, Address = userDto.Address, Name = userDto.Name };
+
                 Database.ClientManager.Create(clientProfile);
+
                 await Database.SaveAsync();
+
                 return new OperationDetails(true, "Регистрация успешно пройдена", "");
             }
             else

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using VI_Home.Common.Entities;
 using VI_Home.Common.Models;
 
+
 namespace VI_Home.Controllers
 {
     
@@ -23,50 +24,48 @@ namespace VI_Home.Controllers
             repository = ninjectKernel.Get<IProductRepository>();
         }
 
-        public ViewResult Index(string returnUrl)
+        public ViewResult Index(Cart cart, string returnUrl)
         {
             return View(new CartIndexViewModel
             {
-                Cart = GetCart(),
+                Cart = cart,
                 ReturnUrl = returnUrl
             });
         }
 
 
-        public RedirectToRouteResult AddToCart(int Id, string returnUrl)
+        public RedirectToRouteResult AddToCart(Cart cart,int Id, string returnUrl)
             {
                 Product product = repository.Products
                     .FirstOrDefault(g => g.Id == Id);
 
                 if (product != null)
                 {
-                    GetCart().AddItem(product, 1);
+                    cart.AddItem(product, 1);
                 }
                 return RedirectToAction("Index", new { returnUrl });
             }
 
-            public RedirectToRouteResult RemoveFromCart(int Id, string returnUrl)
-            {
-              
-                Product product = repository.Products
-                     .FirstOrDefault(g => g.Id == Id);
+        public RedirectToRouteResult RemoveFromCart(Cart cart, int Id, string returnUrl)
+        {
+            Product game = repository.Products
+                .FirstOrDefault(g => g.Id == Id);
 
-            if (product != null)
-                {
-                    GetCart().RemoveLine(product);
-                }
-                return RedirectToAction("Index", new { returnUrl });
-            }
-
-            public Cart GetCart()
+            if (game != null)
             {
-                Cart cart = (Cart)Session["Cart"];
-                if (cart == null)
-                {
-                    cart = new Cart();
-                    Session["Cart"] = cart;
-                }
-                return cart;
+                cart.RemoveLine(game);
             }
+            return RedirectToAction("Index", new { returnUrl });
         }
+
+        public PartialViewResult Summary(Cart cart)
+        {
+            return PartialView(cart);
+        }
+
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            return View(new ShippingDetails());
+        }
+    }
  }

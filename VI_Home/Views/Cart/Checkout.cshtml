@@ -1,0 +1,23 @@
+﻿@model VI_Home.Common.Entities.ShippingDetails
+@{
+    ViewBag.Title = "GameStore: форма заказа";
+}
+
+<h2>Оформить заказ сейчас</h2>
+<p>Пожалуйста введи ваши контактные данные, и мы сразу отправим товар!</p>
+
+<h3>Адрес доставки</h3>
+    @foreach (var property in ViewData.ModelMetadata.Properties) {
+        if (property.PropertyName != "Name" && property.PropertyName != "GiftWrap") {
+<div class="form-group">
+    <label>@(property.DisplayName ?? property.PropertyName)</label>
+    @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+</div>
+        }
+    }
+
+
+
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Обработать заказ" />
+    </div>

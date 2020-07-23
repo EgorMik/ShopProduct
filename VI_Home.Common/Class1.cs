@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace VI_Home.Common
 {
-    class Program
+    public class Class1
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

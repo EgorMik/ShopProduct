@@ -1,4 +1,5 @@
 ﻿
+using DAL.EF;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,15 +15,18 @@ namespace DAL.EF
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
 
+
         static ProductContext()
         {
             Database.SetInitializer<ProductContext>(new StoreDbInitializer());
         }
         public ProductContext(string connectionString)
             : base(connectionString)
-        {
-        }
+        { }
+            
+    
     }
+    
 
     public class StoreDbInitializer : DropCreateDatabaseIfModelChanges<ProductContext>
     {

@@ -46,10 +46,10 @@ namespace BLL.Services
         public ProductDTO GetProduct(int? id)
         {
             if (id == null)
-                throw new ValidationException("Не установлено id телефона", "");
+                throw new ValidationException("Не установлено id товара", "");
             var product = Database.Products.Get(id.Value);
             if (product == null)
-                throw new ValidationException("Телефон не найден", "");
+                throw new ValidationException("Товар не найден", "");
 
             return new ProductDTO { Company = product.Company, Id = product.Id, Name = product.Name, Price = product.Price };
         }

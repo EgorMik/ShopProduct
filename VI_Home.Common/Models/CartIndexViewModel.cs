@@ -7,8 +7,10 @@ using VI_Home.Common.Entities;
 
 namespace VI_Home.Common.Models
 {
+
     public class CartIndexViewModel
     {
+        public int Id { get; set; }
         public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
     }
