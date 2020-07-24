@@ -17,11 +17,9 @@ namespace VI_Home.Controllers
         public class CartController : Controller
         {
             private IProductRepository repository;
-            public CartController()
+            public CartController(IProductRepository rep)
             {
-            IKernel ninjectKernel = new StandardKernel();
-            ninjectKernel.Bind<IProductRepository>().To<EFProductRepository>();
-            repository = ninjectKernel.Get<IProductRepository>();
+            repository = rep;
         }
 
         public ViewResult Index(Cart cart, string returnUrl)
@@ -33,6 +31,10 @@ namespace VI_Home.Controllers
             });
         }
 
+        public PartialViewResult Summary(Cart cart)
+        {
+            return PartialView(cart);
+        }
 
         public RedirectToRouteResult AddToCart(Cart cart,int Id, string returnUrl)
             {
@@ -56,11 +58,6 @@ namespace VI_Home.Controllers
                 cart.RemoveLine(game);
             }
             return RedirectToAction("Index", new { returnUrl });
-        }
-
-        public PartialViewResult Summary(Cart cart)
-        {
-            return PartialView(cart);
         }
 
         public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)

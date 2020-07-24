@@ -20,11 +20,6 @@ namespace DAL.EF
         {
             Database.SetInitializer<ProductContext>(new StoreDbInitializer());
         }
-        public ProductContext(string connectionString)
-            : base(connectionString)
-        { }
-            
-    
     }
     
 

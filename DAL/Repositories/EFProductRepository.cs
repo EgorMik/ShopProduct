@@ -12,7 +12,7 @@ namespace DAL.Repositories
 {
     public class EFProductRepository : IProductRepository
     {
-        ProductContext context = new ProductContext("DefaultConnection");
+        ProductContext context = new ProductContext();
 
         public IEnumerable<Product> Products
         {

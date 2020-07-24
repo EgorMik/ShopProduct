@@ -16,9 +16,9 @@ namespace DAL.Repositories
         private ProductRepository productRepository;
         private OrderRepository orderRepository;
 
-        public EFUnitOfWork(string connectionString)
+        public EFUnitOfWork()
         {
-            db = new ProductContext(connectionString);
+            db = new ProductContext();
         }
         public IRepository<Product> Products
         {

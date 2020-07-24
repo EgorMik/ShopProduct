@@ -27,7 +27,7 @@ namespace BLL.Services
 
             // валидация
             if (product == null)
-                throw new ValidationException("Телефон не найден", "");
+                throw new ValidationException("Товар не найден", "");
             // применяем скидку
             decimal sum = new Discount(0.1m).GetDiscountedPrice(product.Price);
             Order order = new Order
