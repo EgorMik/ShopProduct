@@ -1,6 +1,6 @@
-﻿@model IEnumerable<VI_Home.Common.Models.ProductViewModel>
+﻿@model IEnumerable<VI_Home.Common.DTO.ProductDTO>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Shop";
 }
 
 <h2>Index</h2>
@@ -13,6 +13,12 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Price)
@@ -30,21 +36,26 @@
             @Html.DisplayFor(modelItem => item.Company)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Price)
         </td>
+
         <td>
             @using (Html.BeginForm("AddToCart", "Cart", new { id = item.Id }))
             {
                 <div class="pull-right">
-                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                        <input type="submit" class="btn btn-success" value="Добавить в корзину" />
-                    
+
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" class="btn btn-success" value="Добавить в корзину" />
                 </div>
             }
-
-            </td>
+        </td>
     </tr>
-        
     }
 
 </table>

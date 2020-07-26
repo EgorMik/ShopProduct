@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VI_Home.Common.DTO;
 
 namespace VI_Home.Common.Entities
 {
@@ -10,7 +11,7 @@ namespace VI_Home.Common.Entities
     {
         public List<CartLine> lineCollection = new List<CartLine>();
 
-        public void AddItem(Product product, int quantity)
+        public void AddItem(ProductDTO product, int quantity)
         {
             CartLine line = lineCollection
                 .Where(g => g.Product.Id == product.Id)
@@ -30,7 +31,7 @@ namespace VI_Home.Common.Entities
             }
         }
 
-        public void RemoveLine(Product product)
+        public void RemoveLine(ProductDTO product)
         {
             lineCollection.RemoveAll(l => l.Product.Id == product.Id);
         }
@@ -52,7 +53,7 @@ namespace VI_Home.Common.Entities
     }
     public class CartLine
     {
-        public Product Product { get; set; }
+        public ProductDTO Product { get; set; }
         public int Quantity { get; set; }
     }
 }

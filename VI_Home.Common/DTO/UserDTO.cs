@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VI_Home.Common.Entities;
 
 namespace VI_Home.Common.DTO
 {
@@ -15,5 +16,10 @@ namespace VI_Home.Common.DTO
         public string Name { get; set; }
         public string Address { get; set; }
         public string Role { get; set; }
+        public int Age { get; set; }
+        public byte[] Photo { get; set; }
+
+       
+        public virtual List<Order> Orders { get; set; }
     }
 }

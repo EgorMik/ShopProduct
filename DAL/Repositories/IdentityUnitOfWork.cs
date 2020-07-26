@@ -14,7 +14,7 @@ namespace DAL.Repositories
 {
     public class IdentityUnitOfWork : IUnitOfWork1
     {
-        private ApplicationContext db;
+        private ProductContext db;
 
         private ApplicationUserManager userManager;
         private ApplicationRoleManager roleManager;
@@ -22,7 +22,7 @@ namespace DAL.Repositories
 
         public IdentityUnitOfWork(string connectionString)
         {
-            db = new ApplicationContext(connectionString);
+            db = new ProductContext();
             userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
             roleManager = new ApplicationRoleManager(new RoleStore<ApplicationRole>(db));
             clientManager = new ClientManager(db);

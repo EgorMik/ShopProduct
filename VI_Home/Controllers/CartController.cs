@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VI_Home.Common.DTO;
 using VI_Home.Common.Entities;
 using VI_Home.Common.Models;
 
@@ -38,7 +39,7 @@ namespace VI_Home.Controllers
 
         public RedirectToRouteResult AddToCart(Cart cart,int Id, string returnUrl)
             {
-                Product product = repository.Products
+                ProductDTO product = repository.Products
                     .FirstOrDefault(g => g.Id == Id);
 
                 if (product != null)
@@ -50,7 +51,7 @@ namespace VI_Home.Controllers
 
         public RedirectToRouteResult RemoveFromCart(Cart cart, int Id, string returnUrl)
         {
-            Product game = repository.Products
+            ProductDTO game = repository.Products
                 .FirstOrDefault(g => g.Id == Id);
 
             if (game != null)
