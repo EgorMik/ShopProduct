@@ -62,7 +62,7 @@ namespace VI_Home.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             System.Web.Mvc.DependencyResolver.SetResolver(new
-            VI_Home.Infrastructure.NinjectDependencyResolver(kernel));
+       VI_Home.Infrastructure.NinjectDependencyResolver(kernel));
         }
     }
 }
