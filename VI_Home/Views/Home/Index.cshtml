@@ -2,8 +2,9 @@
 @{
     ViewBag.Title = "Shop";
 }
-@Scripts.Render("~/scripts/jquery-1.7.1.js")
+@Scripts.Render("~/scripts/jquery-3.3.1.js")
 @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+
 <h2>Shop</h2>
 
 <table class="table">
@@ -60,7 +61,7 @@
     }
 
 </table>
-
+<h3>Поиск по ключевому слову</h3>
 <div>
     @using (Ajax.BeginForm("ProductSearch", new AjaxOptions { UpdateTargetId = "results" }))
     {
