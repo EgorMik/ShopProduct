@@ -2,8 +2,9 @@
 @{
     ViewBag.Title = "Shop";
 }
-
-<h2>Index</h2>
+@Scripts.Render("~/scripts/jquery-1.7.1.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+<h2>Shop</h2>
 
 <table class="table">
 
@@ -28,34 +29,43 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Company)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
 
-        <td>
-            @using (Html.BeginForm("AddToCart", "Cart", new { id = item.Id }))
-            {
-                <div class="pull-right">
+            <td>
+                @using (Html.BeginForm("AddToCart", "Cart", new { id = item.Id }))
+                {
+                    <div class="pull-right">
 
-                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                    <input type="submit" class="btn btn-success" value="Добавить в корзину" />
-                </div>
-            }
-        </td>
-    </tr>
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-success" value="Добавить в корзину" />
+                    </div>
+                }
+            </td>
+        </tr>
     }
 
 </table>
+
+<div>
+    @using (Ajax.BeginForm("ProductSearch", new AjaxOptions { UpdateTargetId = "results" }))
+    {
+        <input type="text" name="name" />
+        <input type="submit" value="Поиск" />
+    }
+    <div id="results"></div>
+</div>

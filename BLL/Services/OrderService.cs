@@ -23,7 +23,7 @@ namespace BLL.Services
         }
         public void MakeOrder(OrderDTO orderDto)
         {
-            Product product = Database.Products.Get(orderDto.ProductId);
+            Product product = Database.Products.Get(orderDto.Id);
 
             // валидация
             if (product == null)

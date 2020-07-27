@@ -1,5 +1,4 @@
 ﻿using DAL.EF;
-
 using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VI_Home.Common.DTO;
 using VI_Home.Common.Entities;
+using System.Web.Mvc;
 
 namespace DAL.Repositories
 {
@@ -31,7 +31,7 @@ namespace DAL.Repositories
             return dbEntry;
         }
 
-        public void SaveProduct(ProductDTO product)
+            public void SaveProduct(ProductDTO product)
         {
 
             if (product.Id == 0)

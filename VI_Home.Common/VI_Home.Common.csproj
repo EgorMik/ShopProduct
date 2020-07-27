@@ -87,7 +87,6 @@
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\ClientProfile.cs" />
-    <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Models\ShippingDetails.cs" />

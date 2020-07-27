@@ -66,5 +66,16 @@ namespace VI_Home.Controllers
                 return View(product);
             }
         }
+        [HttpPost]
+        public ActionResult Delete(int Id)
+        {
+            ProductDTO deletedproduct = repository.DeleteProduct(Id);
+            if (deletedproduct != null)
+            {
+                TempData["message"] = string.Format("Товар  \"{0}\" был удален",
+                    deletedproduct.Name);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

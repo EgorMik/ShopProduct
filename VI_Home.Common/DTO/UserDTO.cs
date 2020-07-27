@@ -18,8 +18,10 @@ namespace VI_Home.Common.DTO
         public string Role { get; set; }
         public int Age { get; set; }
         public byte[] Photo { get; set; }
-
-       
-        public virtual List<Order> Orders { get; set; }
+        public ICollection<OrderDTO> Orders { get; set; }
+        public UserDTO()
+        {
+            Orders = new List<OrderDTO>();
+        }
     }
 }

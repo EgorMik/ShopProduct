@@ -15,15 +15,21 @@ namespace VI_Home.Controllers
 {
     public class HomeController : Controller
     {
+        ISearchProductService _search;
         IProductRepository repository;
-        public HomeController(IProductRepository rep)
+        public HomeController(IProductRepository rep, ISearchProductService search)
         {
             repository = rep;
+            _search = search;
         }
         public ViewResult Index()
         {
            
             return View(repository.Products);
+        }
+        public ActionResult ProductSearch(string name)
+        {
+            return PartialView(_search.ProductSearch(name));
         }
     }
 }

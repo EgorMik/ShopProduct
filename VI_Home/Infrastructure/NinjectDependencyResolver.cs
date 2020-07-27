@@ -40,6 +40,7 @@ namespace VI_Home.Infrastructure
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
    
             kernel.Bind<IRepository<Order>>().To<OrderRepository>();
+            kernel.Bind<ISearchProductService>().To<SearchProductService>();
             kernel.Bind<IClientManager>().To<ClientManager>();
             kernel.Bind<IUnitOfWork1>().To<IdentityUnitOfWork>();
             kernel.Bind<IUserService>().To<UserService>();

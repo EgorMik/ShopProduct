@@ -1,0 +1,65 @@
+﻿@model IEnumerable<VI_Home.Common.DTO.ProductDTO>
+
+@Scripts.Render("~/scripts/jquery-1.7.1.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+
+<div id="searchresults">
+
+    <h3>Запрос товаров</h3>
+    <table class="table">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+
+                <td>
+                    @using (Html.BeginForm("AddToCart", "Cart", new { id = item.Id }))
+                    {
+                        <div class="pull-right">
+
+                            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                            <input type="submit" class="btn btn-success" value="Добавить в корзину" />
+                        </div>
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+

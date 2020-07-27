@@ -1,6 +1,7 @@
 ﻿
 using BLL.Infrastructure;
 using BLL.Interfaces;
+using DAL.EF;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
@@ -46,7 +47,8 @@ namespace VI_Home.Controllers
             await SetInitialDataAsync();
             if (ModelState.IsValid)
             {
-                UserDTO userDto = new UserDTO { Email = model.Email, Password = model.Password };
+              
+                UserDTO userDto = new UserDTO { Name = model.Name, Password = model.Password };
                 ClaimsIdentity claim = await UserService.Authenticate(userDto);
                 if (claim == null)
                 {
@@ -85,10 +87,8 @@ namespace VI_Home.Controllers
             {
                 UserDTO userDto = new UserDTO
                 {
-                    Email = model.Email,
-                    Password = model.Password,
-                    Address = model.Address,
                     Name = model.Name,
+                    Password = model.Password,
                     Role = "user"
                 };
                 OperationDetails operationDetails = await UserService.Create(userDto);
@@ -105,9 +105,9 @@ namespace VI_Home.Controllers
             {
                 Email = "somemail@mail.ru",
                 UserName = "somemail@mail.ru",
-                Password = "*****",
-                Name = "******8",
-                Address = "*********",
+                Password = "123456789",
+                Name = "qwerty",
+                Address = "qwerty",
                 Role = "admin",
             }, new List<string> { "user", "admin" });
         }

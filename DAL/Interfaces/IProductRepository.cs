@@ -14,5 +14,6 @@ namespace DAL.Interfaces
         IEnumerable<ProductDTO> Products { get; }
         void SaveProduct(ProductDTO productview);
         ProductDTO DeleteProduct(int Id);
+     
     }
 }
