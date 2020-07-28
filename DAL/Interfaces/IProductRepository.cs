@@ -9,10 +9,11 @@ using VI_Home.Common.Entities;
 
 namespace DAL.Interfaces
 {
-    public interface IProductRepository
+    public interface IProductRepository<T> where T : class
     {
-        IEnumerable<ProductDTO> Products { get; }
-        void SaveProduct(ProductDTO productview);
+         T Get(int id);
+        IEnumerable<T> products { get; }
+        void SaveProduct(T item);
         ProductDTO DeleteProduct(int Id);
      
     }

@@ -17,7 +17,7 @@ namespace DAL.EF
         public ProductContext() : base("DbConnection")
         { }
  
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDTO> Orders { get; set; }
         public DbSet<ProductDTO> Products { get; set; }
         public DbSet<ClientProfile> ClientProfiles { get; set; }
         public DbSet<UserDTO> UserDTO { get; set; }

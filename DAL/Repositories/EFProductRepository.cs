@@ -11,33 +11,44 @@ using System.Web.Mvc;
 
 namespace DAL.Repositories
 {
-    public class EFProductRepository : IProductRepository
+    public class EFProductRepository : IProductRepository<ProductDTO>
     {
-        ProductContext context = new ProductContext();
+        ProductContext _context;
 
-        public IEnumerable<ProductDTO> Products
+
+        public EFProductRepository(ProductContext context)
         {
-            get { return context.Products; }
+            _context = context;
+        }
+        public IEnumerable<ProductDTO> products
+        {
+            get { return _context.Products; }
         }
 
+       
         public ProductDTO DeleteProduct(int Id)
         {
-            ProductDTO dbEntry = context.Products.Find(Id);
+            ProductDTO dbEntry = _context.Products.Find(Id);
             if (dbEntry != null)
             {
-                context.Products.Remove(dbEntry);
-                context.SaveChanges();
+                _context.Products.Remove(dbEntry);
+                _context.SaveChanges();
             }
             return dbEntry;
         }
 
-            public void SaveProduct(ProductDTO product)
+        public ProductDTO Get(int id)
+        {
+            return _context.Products.Find(id);
+        }
+
+        public void SaveProduct(ProductDTO product)
         {
 
             if (product.Id == 0)
             {
 
-                context.Products.Add(new ProductDTO
+                _context.Products.Add(new ProductDTO
                 {
                     Name = product.Name,
                     Description = product.Description,
@@ -50,7 +61,7 @@ namespace DAL.Repositories
             else
             {
 
-                ProductDTO dbEntry = context.Products.Find(product.Id);
+                ProductDTO dbEntry = _context.Products.Find(product.Id);
                 if (dbEntry != null)
                 {
                     dbEntry.Name = product.Name;
@@ -59,7 +70,7 @@ namespace DAL.Repositories
                     dbEntry.Category = product.Category;
                 }
             }
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
 

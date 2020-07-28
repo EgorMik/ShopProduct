@@ -10,23 +10,25 @@ using VI_Home.Common.DTO;
 using VI_Home.Common.Models;
 using VI_Home.Common;
 using DAL.Interfaces;
+using DAL.Repositories;
 
 namespace VI_Home.Controllers
 {
     //[Authorize(Roles = "user")]
     public class HomeController : Controller
     {
-        ISearchProductService _search;
-        IProductRepository repository;
-        public HomeController(IProductRepository rep, ISearchProductService search)
+        EFUnitOfWork unitofwork;
+           ISearchProductService _search;
+        
+        public HomeController( ISearchProductService search)
         {
-            repository = rep;
+            unitofwork = new EFUnitOfWork();
             _search = search;
         }
         public ViewResult Index()
         {
            
-            return View(repository.Products);
+            return View(unitofwork.Products.products);
         }
         public ActionResult ProductSearch(string name)
         {

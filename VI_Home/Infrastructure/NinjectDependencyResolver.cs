@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VI_Home.Common.DTO;
 using VI_Home.Common.Entities;
 
 namespace VI_Home.Infrastructure
@@ -36,10 +37,9 @@ namespace VI_Home.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<IOrderService>().To<OrderService>();
-  
-            kernel.Bind<IProductRepository>().To<EFProductRepository>();
-   
-            kernel.Bind<IRepository<Order>>().To<OrderRepository>();
+            kernel.Bind<IUnitOfWork>().To<EFUnitOfWork>();
+            kernel.Bind<IProductRepository<ProductDTO>>().To<EFProductRepository>();
+            kernel.Bind<IOrderRepository<OrderDTO>>().To<OrderRepository>();
             kernel.Bind<ISearchProductService>().To<SearchProductService>();
             kernel.Bind<IClientManager>().To<ClientManager>();
             kernel.Bind<IUnitOfWork1>().To<IdentityUnitOfWork>();

@@ -23,7 +23,7 @@ namespace BLL.Services
         }
         public void MakeOrder(OrderDTO orderDto)
         {
-            Product product = Database.Products.Get(orderDto.Id);
+            ProductDTO product = Database.Products.Get(orderDto.Id);
 
             // валидация
             if (product == null)
@@ -38,7 +38,7 @@ namespace BLL.Services
                 Sum = sum,
                 PhoneNumber = orderDto.PhoneNumber
             };
-            Database.Orders.Create(order);
+            Database.Orders.Create(orderDto);
             Database.Save();
         }
 
@@ -62,7 +62,7 @@ namespace BLL.Services
         public IEnumerable<ProductDTO> GetProducts()
         {
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Product, ProductDTO>()).CreateMapper();
-            return mapper.Map<IEnumerable<Product>, List<ProductDTO>>(Database.Products.GetAll());
+            return mapper.Map<IEnumerable<ProductDTO>, List<ProductDTO>>(Database.Products.products);
         }
     }
 }

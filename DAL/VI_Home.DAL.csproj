@@ -153,6 +153,7 @@
     <Compile Include="Identity\ApplicationRoleManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
     <Compile Include="Interfaces\IClientManager.cs" />
+    <Compile Include="Interfaces\IOrderRepository.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -164,6 +165,10 @@
     <Compile Include="Migrations\202007262228467_AddCompanyMigration.cs" />
     <Compile Include="Migrations\202007262228467_AddCompanyMigration.Designer.cs">
       <DependentUpon>202007262228467_AddCompanyMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007281238542_AddMigration.cs" />
+    <Compile Include="Migrations\202007281238542_AddMigration.Designer.cs">
+      <DependentUpon>202007281238542_AddMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -190,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007262228467_AddCompanyMigration.resx">
       <DependentUpon>202007262228467_AddCompanyMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007281238542_AddMigration.resx">
+      <DependentUpon>202007281238542_AddMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DAL.Interfaces;
+using DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,11 @@ namespace VI_Home.Controllers
     //[Authorize(Roles = "admin")]
     public class AdminController : BaseController
     {
-        IProductRepository repository;
-      
-        public AdminController(IProductRepository repo)
+        EFUnitOfWork unitOfWork;
+
+        public AdminController()
         {
-            repository = repo;
+            unitOfWork = new EFUnitOfWork();
         }
 
         public ViewResult Create()
@@ -27,12 +28,12 @@ namespace VI_Home.Controllers
 
         public ViewResult Index()
         {
-            return View(Mapper.Map<List<ProductViewModel>>(repository.Products));
+            return View(Mapper.Map<List<ProductViewModel>>(unitOfWork.Products.products));
         }
 
         public ViewResult Edit(int Id)
         {
-            return View(Mapper.Map<ProductViewModel>(repository.Products.FirstOrDefault(g => g.Id == Id)));
+            return View(Mapper.Map<ProductViewModel>(unitOfWork.Products.products.FirstOrDefault(g => g.Id == Id)));
         }
 
         [HttpPost]
@@ -40,7 +41,7 @@ namespace VI_Home.Controllers
         {
             if (ModelState.IsValid)
             {
-                repository.SaveProduct(Mapper.Map<ProductViewModel, ProductDTO>(product));
+                unitOfWork.Products.SaveProduct(Mapper.Map<ProductViewModel, ProductDTO>(product));
                 TempData["message"] = string.Format("Изменения товара \"{0}\" были сохранены", product.Name);
                 return RedirectToAction("Index");
             }
@@ -54,7 +55,7 @@ namespace VI_Home.Controllers
         [HttpPost]
         public ActionResult Delete(int Id)
         {
-            ProductDTO deletedproduct = repository.DeleteProduct(Id);
+            ProductDTO deletedproduct = unitOfWork.Products.DeleteProduct(Id);
             if (deletedproduct != null)
             {
                 TempData["message"] = string.Format("Товар  \"{0}\" был удален",

@@ -17,8 +17,8 @@ namespace VI_Home.Controllers
     
         public class CartController : Controller
         {
-            private IProductRepository repository;
-            public CartController(IProductRepository rep)
+            private IProductRepository<ProductDTO> repository;
+            public CartController(IProductRepository<ProductDTO> rep)
             {
             repository = rep;
         }
@@ -39,7 +39,7 @@ namespace VI_Home.Controllers
 
         public RedirectToRouteResult AddToCart(Cart cart,int Id, string returnUrl)
             {
-                ProductDTO product = repository.Products
+                ProductDTO product = repository.products
                     .FirstOrDefault(g => g.Id == Id);
 
                 if (product != null)
@@ -51,7 +51,7 @@ namespace VI_Home.Controllers
 
         public RedirectToRouteResult RemoveFromCart(Cart cart, int Id, string returnUrl)
         {
-            ProductDTO game = repository.Products
+            ProductDTO game = repository.products
                 .FirstOrDefault(g => g.Id == Id);
 
             if (game != null)

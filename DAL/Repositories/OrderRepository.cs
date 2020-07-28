@@ -8,11 +8,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VI_Home.Common.DTO;
 using VI_Home.Common.Entities;
 
 namespace DAL.Repositories
 {
-    public class OrderRepository : IRepository<Order>
+    public class OrderRepository : IOrderRepository<OrderDTO>
     {
         private ProductContext db;
 
@@ -21,32 +22,32 @@ namespace DAL.Repositories
             this.db = context;
         }
 
-        public IEnumerable<Order> GetAll()
+        public IEnumerable<OrderDTO> GetAll()
         {
-            return db.Orders.Include(o => o.Product);
+            return db.Orders.Include(o => o.Products);
         }
 
-        public Order Get(int id)
+        public OrderDTO Get(int id)
         {
             return db.Orders.Find(id);
         }
 
-        public void Create(Order order)
+        public void Create(OrderDTO order)
         {
             db.Orders.Add(order);
         }
 
-        public void Update(Order order)
+        public void Update(OrderDTO order)
         {
             db.Entry(order).State = EntityState.Modified;
         }
-        public IEnumerable<Order> Find(Func<Order, Boolean> predicate)
+        public IEnumerable<OrderDTO> Find(Func<OrderDTO, Boolean> predicate)
         {
-            return db.Orders.Include(o => o.Product).Where(predicate).ToList();
+            return db.Orders.Include(o => o.Products).Where(predicate).ToList();
         }
         public void Delete(int id)
         {
-            Order order = db.Orders.Find(id);
+            OrderDTO order = db.Orders.Find(id);
             if (order != null)
                 db.Orders.Remove(order);
         }
