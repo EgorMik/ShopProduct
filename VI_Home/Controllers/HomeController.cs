@@ -18,18 +18,20 @@ namespace VI_Home.Controllers
     public class HomeController : Controller
     {
         EFUnitOfWork unitofwork;
-           ISearchProductService _search;
+        ISearchProductService _search;
         
         public HomeController( ISearchProductService search)
         {
             unitofwork = new EFUnitOfWork();
             _search = search;
         }
+
         public ViewResult Index()
         {
            
             return View(unitofwork.Products.products);
         }
+
         public ActionResult ProductSearch(string name)
         {
             return PartialView(_search.ProductSearch(name));
