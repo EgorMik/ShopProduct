@@ -13,6 +13,7 @@ using DAL.Interfaces;
 
 namespace VI_Home.Controllers
 {
+    //[Authorize(Roles = "user")]
     public class HomeController : Controller
     {
         ISearchProductService _search;

@@ -10,53 +10,37 @@ using VI_Home.Common.Models;
 
 namespace VI_Home.Controllers
 {
-    public class AdminController : Controller
+    //[Authorize(Roles = "admin")]
+    public class AdminController : BaseController
     {
         IProductRepository repository;
-
+      
         public AdminController(IProductRepository repo)
         {
             repository = repo;
         }
+
         public ViewResult Create()
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductDTO, ProductViewModel>());
-            // Настройка AutoMapper
-            var mapper = new Mapper(config);
-            // сопоставление
-            var model = mapper.Map<ProductViewModel>(new ProductDTO());
-            return View("Edit", model);
+            return View("Edit", Mapper.Map<ProductViewModel>(new ProductDTO()));
         }
+
         public ViewResult Index()
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductDTO, ProductViewModel>());
-            // Настройка AutoMapper
-            var mapper = new Mapper(config);
-            // сопоставление
-            var model = mapper.Map<List<ProductViewModel>>(repository.Products);
-            return View(model);
+            return View(Mapper.Map<List<ProductViewModel>>(repository.Products));
         }
+
         public ViewResult Edit(int Id)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductDTO, ProductViewModel>());
-            // Настройка AutoMapper
-            var mapper = new Mapper(config);
-            // сопоставление
-            var model1 = mapper.Map<ProductViewModel>(repository.Products.FirstOrDefault(g => g.Id == Id));
-
-            return View(model1);
+            return View(Mapper.Map<ProductViewModel>(repository.Products.FirstOrDefault(g => g.Id == Id)));
         }
+
         [HttpPost]
         public ActionResult Edit(ProductViewModel product)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ProductViewModel, ProductDTO>());
-            // Настройка AutoMapper
-            var mapper = new Mapper(config);
-            // сопоставление
-            var prdto = mapper.Map<ProductViewModel, ProductDTO>(product);
             if (ModelState.IsValid)
             {
-                repository.SaveProduct(prdto);
+                repository.SaveProduct(Mapper.Map<ProductViewModel, ProductDTO>(product));
                 TempData["message"] = string.Format("Изменения товара \"{0}\" были сохранены", product.Name);
                 return RedirectToAction("Index");
             }
@@ -66,6 +50,7 @@ namespace VI_Home.Controllers
                 return View(product);
             }
         }
+
         [HttpPost]
         public ActionResult Delete(int Id)
         {

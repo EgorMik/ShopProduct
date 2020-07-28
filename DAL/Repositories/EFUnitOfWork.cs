@@ -13,7 +13,7 @@ namespace DAL.Repositories
     public class EFUnitOfWork /*: IUnitOfWork*/
     {
         //private ProductContext db;
-        //private ProductRepository productRepository;
+        //private EFProductRepository productRepository;
         //private OrderRepository orderRepository;
 
         //public EFUnitOfWork()
@@ -40,7 +40,7 @@ namespace DAL.Repositories
         //    }
         //}
 
-       
+
 
         //public void Save()
         //{
