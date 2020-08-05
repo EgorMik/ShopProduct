@@ -176,3 +176,11 @@ C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.InitialCreate.r
 C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.AddCompanyMigration.resources
 C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\VI_Home.DAL.csproj.GenerateResource.cache
 C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.AddMigration.resources
+C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.AddyMigration2.resources
+C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.MigrateDB.resources
+C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.MigrateDB2.resources
+C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.MigrateDB7.resources
+C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.MigrateDB9.resources
+C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.MigrateDB10.resources
+C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.MigrateDB11.resources
+C:\Users\lenovo\Desktop\repo\Home_4\DAL\obj\Debug\DAL.Migrations.MigrateDB12.resources

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VI_Home.Common.Entities;
 
 namespace VI_Home.Common.DTO
 {
@@ -13,10 +14,9 @@ namespace VI_Home.Common.DTO
         public string Company { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
-
         public string Category { get; set; }
+        public virtual ICollection<ClientProfile> ClientProfiles { get; set; }
+      
 
-        public int? OrdertId { get; set; }
-        public OrderDTO OrdersDTO { get; set; }
     }
 }

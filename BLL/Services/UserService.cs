@@ -27,6 +27,7 @@ namespace BLL.Services
         public async Task<OperationDetails> Create(UserDTO userDto)
         {
             ApplicationUser user = await Database.UserManager.FindByEmailAsync(userDto.Email);
+
             if (user == null)
             {
                 user = new ApplicationUser { Email = userDto.Email, UserName = userDto.Email };
@@ -36,7 +37,7 @@ namespace BLL.Services
 
                 await Database.UserManager.AddToRoleAsync(user.Id, userDto.Role);
 
-                ClientProfile clientProfile = new ClientProfile { Id = user.Id, Address = userDto.Address, Name = userDto.Name };
+               ClientProfile clientProfile = new ClientProfile { Id = user.Id, Address = userDto.Address, Name = userDto.Name };
 
                 Database.ClientManager.Create(clientProfile);
 
@@ -53,7 +54,7 @@ namespace BLL.Services
         public async Task<ClaimsIdentity> Authenticate(UserDTO userDto)
         {
             ClaimsIdentity claim = null;
-            ApplicationUser user = await Database.UserManager.FindAsync(userDto.Name, userDto.Password);
+            ApplicationUser user = await Database.UserManager.FindAsync(userDto.Email, userDto.Password);
             if (user != null)
                 claim = await Database.UserManager.CreateIdentityAsync(user,
                                             DefaultAuthenticationTypes.ApplicationCookie);

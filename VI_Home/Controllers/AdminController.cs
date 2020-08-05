@@ -11,7 +11,7 @@ using VI_Home.Common.Models;
 
 namespace VI_Home.Controllers
 {
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin")]
     public class AdminController : BaseController
     {
         EFUnitOfWork unitOfWork;

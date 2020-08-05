@@ -36,10 +36,10 @@ namespace VI_Home.Infrastructure
 
         private void AddBindings()
         {
-            kernel.Bind<IOrderService>().To<OrderService>();
+           
             kernel.Bind<IUnitOfWork>().To<EFUnitOfWork>();
             kernel.Bind<IProductRepository<ProductDTO>>().To<EFProductRepository>();
-            kernel.Bind<IOrderRepository<OrderDTO>>().To<OrderRepository>();
+            kernel.Bind<IOrderService>().To<OrderService>();
             kernel.Bind<ISearchProductService>().To<SearchProductService>();
             kernel.Bind<IClientManager>().To<ClientManager>();
             kernel.Bind<IUnitOfWork1>().To<IdentityUnitOfWork>();

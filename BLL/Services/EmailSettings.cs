@@ -25,10 +25,11 @@ namespace BLL.Services
 
     public class EmailOrderProcessor : IOrderProcessor
     {
+       
         private EmailSettings emailSettings;
-
         public EmailOrderProcessor(EmailSettings settings)
         {
+           
             emailSettings = settings;
         }
 

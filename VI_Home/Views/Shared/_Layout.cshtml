@@ -19,11 +19,20 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li style="float:right;padding-left:20px;"> @Html.ActionLink("Logout", "Logout", "Account")</li>
+                        <li style="float:right;"> @Html.Action("Summary", "Cart")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                        @Html.Label(" | ");
+                        <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                    }
                     <li>@Html.ActionLink("Shop", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Account")</li>
-                    <li>@Html.ActionLink("Register", "Register", "Account")</li>
                     <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
-                    <li> @Html.Action("Summary", "Cart")</li>
+                  
                 </ul>
             </div>
         </div>

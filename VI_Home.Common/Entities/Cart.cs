@@ -9,8 +9,8 @@ namespace VI_Home.Common.Entities
 {
     public class Cart
     {
-        public List<CartLine> lineCollection = new List<CartLine>();
 
+        public List<CartLine> lineCollection = new List<CartLine>();
         public void AddItem(ProductDTO product, int quantity)
         {
             CartLine line = lineCollection
@@ -50,10 +50,7 @@ namespace VI_Home.Common.Entities
         {
             get { return lineCollection; }
         }
-    }
-    public class CartLine
-    {
-        public ProductDTO Product { get; set; }
-        public int Quantity { get; set; }
+
+
     }
 }

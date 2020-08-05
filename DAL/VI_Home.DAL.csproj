@@ -123,6 +123,7 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -170,6 +171,38 @@
     <Compile Include="Migrations\202007281238542_AddMigration.Designer.cs">
       <DependentUpon>202007281238542_AddMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007311026356_AddyMigration2.cs" />
+    <Compile Include="Migrations\202007311026356_AddyMigration2.Designer.cs">
+      <DependentUpon>202007311026356_AddyMigration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007312220377_MigrateDB.cs" />
+    <Compile Include="Migrations\202007312220377_MigrateDB.Designer.cs">
+      <DependentUpon>202007312220377_MigrateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008021617390_MigrateDB2.cs" />
+    <Compile Include="Migrations\202008021617390_MigrateDB2.Designer.cs">
+      <DependentUpon>202008021617390_MigrateDB2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008032156016_MigrateDB7.cs" />
+    <Compile Include="Migrations\202008032156016_MigrateDB7.Designer.cs">
+      <DependentUpon>202008032156016_MigrateDB7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008051535121_MigrateDB9.cs" />
+    <Compile Include="Migrations\202008051535121_MigrateDB9.Designer.cs">
+      <DependentUpon>202008051535121_MigrateDB9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008051550170_MigrateDB10.cs" />
+    <Compile Include="Migrations\202008051550170_MigrateDB10.Designer.cs">
+      <DependentUpon>202008051550170_MigrateDB10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008052006407_MigrateDB11.cs" />
+    <Compile Include="Migrations\202008052006407_MigrateDB11.Designer.cs">
+      <DependentUpon>202008052006407_MigrateDB11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008052019465_MigrateDB12.cs" />
+    <Compile Include="Migrations\202008052019465_MigrateDB12.Designer.cs">
+      <DependentUpon>202008052019465_MigrateDB12.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,6 +211,7 @@
     <Compile Include="Repositories\EFUnitOfWork.cs" />
     <Compile Include="Repositories\IdentityUnitOfWork.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -198,6 +232,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007281238542_AddMigration.resx">
       <DependentUpon>202007281238542_AddMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007311026356_AddyMigration2.resx">
+      <DependentUpon>202007311026356_AddyMigration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007312220377_MigrateDB.resx">
+      <DependentUpon>202007312220377_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008021617390_MigrateDB2.resx">
+      <DependentUpon>202008021617390_MigrateDB2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008032156016_MigrateDB7.resx">
+      <DependentUpon>202008032156016_MigrateDB7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008051535121_MigrateDB9.resx">
+      <DependentUpon>202008051535121_MigrateDB9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008051550170_MigrateDB10.resx">
+      <DependentUpon>202008051550170_MigrateDB10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008052006407_MigrateDB11.resx">
+      <DependentUpon>202008052006407_MigrateDB11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008052019465_MigrateDB12.resx">
+      <DependentUpon>202008052019465_MigrateDB12.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

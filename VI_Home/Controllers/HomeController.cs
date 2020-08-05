@@ -14,7 +14,7 @@ using DAL.Repositories;
 
 namespace VI_Home.Controllers
 {
-    //[Authorize(Roles = "user")]
+    
     public class HomeController : Controller
     {
         EFUnitOfWork unitofwork;

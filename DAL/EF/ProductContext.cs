@@ -14,15 +14,12 @@ namespace DAL.EF
 {
     public class ProductContext : IdentityDbContext<ApplicationUser>
     {
-        public ProductContext() : base("DbConnection")
+        public ProductContext() : base("DBConnection")
         { }
- 
+
         public DbSet<OrderDTO> Orders { get; set; }
         public DbSet<ProductDTO> Products { get; set; }
         public DbSet<ClientProfile> ClientProfiles { get; set; }
-        public DbSet<UserDTO> UserDTO { get; set; }
-
-
-
+        public DbSet<PageVisit> PageVisits { get; set; }
     }
 }

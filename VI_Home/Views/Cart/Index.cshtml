@@ -40,7 +40,7 @@
         <tr>
             <td colspan="3" class="text-right">Итого:</td>
             <td class="text-right">
-                @Model.Cart.ComputeTotalValue().ToString("# руб")
+                @Model.Cart.Lines.Sum(e => e.Product.Price * e.Quantity).ToString("# руб")
             </td>
         </tr>
     </tfoot>

@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VI_Home.Common.Entities;
 
 namespace DAL.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository
     {
-        IEnumerable<T> GetAll();
-        T Get(int id);
-        IEnumerable<T> Find(Func<T, Boolean> predicate);
-        void Create(T item);
-        void Update(T item);
-        void Delete(int id);
+        PageVisit GetPageByUrl(System.Uri basse);
+        void Update(PageVisit page);
+        void Save(PageVisit visitPage);
     }
 }

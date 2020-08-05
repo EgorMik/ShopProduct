@@ -22,7 +22,12 @@
         {
             <div class="alert alert-success">@TempData["message"]</div>
         }
-        @RenderBody()
-    </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Shop", "Index", "Home")</li>
+            </ul>
+            </div>
+            @RenderBody()
+        </div>
 </body>
 </html>

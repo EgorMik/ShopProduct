@@ -13,6 +13,7 @@ namespace DAL.Repositories
 {
     public class EFUnitOfWork : IUnitOfWork
     {
+        private Repository rep;
         private ProductContext db;
         private EFProductRepository productRepository;
         private OrderRepository orderRepository;
@@ -40,8 +41,16 @@ namespace DAL.Repositories
                 return orderRepository;
             }
         }
+        public IRepository Repo
+        {
+            get
+            {
+                if (rep == null)
+                    rep = new Repository(db);
+                return rep;
+            }
+        }
 
-  
         public void Save()
         {
             db.SaveChanges();

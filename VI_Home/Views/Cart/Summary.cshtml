@@ -9,5 +9,5 @@
 <div class="navbar-text navbar-right">
     <b>Ваша корзина:</b>
     @Model.Lines.Sum(x => x.Quantity) товаров,
-    @Model.ComputeTotalValue().ToString("# руб")
+    @Model.Lines.Sum(e => e.Product.Price * e.Quantity).ToString("# руб")
 </div>

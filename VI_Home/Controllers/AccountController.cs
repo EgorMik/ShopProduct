@@ -48,7 +48,7 @@ namespace VI_Home.Controllers
             if (ModelState.IsValid)
             {
               
-                UserDTO userDto = new UserDTO { Name = model.Name, Password = model.Password };
+                UserDTO userDto = new UserDTO { Email = model.Email, Password = model.Password };
                 ClaimsIdentity claim = await UserService.Authenticate(userDto);
                 if (claim == null)
                 {
@@ -87,8 +87,10 @@ namespace VI_Home.Controllers
             {
                 UserDTO userDto = new UserDTO
                 {
-                    Name = model.Name,
+                    Email = model.Email,
                     Password = model.Password,
+                    Address = model.Address,
+                    Name = model.Name,
                     Role = "user"
                 };
                 OperationDetails operationDetails = await UserService.Create(userDto);

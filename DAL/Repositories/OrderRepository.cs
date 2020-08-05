@@ -19,7 +19,7 @@ namespace DAL.Repositories
 
         public OrderRepository(ProductContext context)
         {
-            this.db = context;
+            db = context;
         }
 
         public IEnumerable<OrderDTO> GetAll()
